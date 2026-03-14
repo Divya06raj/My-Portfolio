@@ -16,7 +16,7 @@ A stunning 3D portfolio website showcasing my projects, skills, and experience a
 
 ## 🚀 Live Demo
 
-**[View Live Portfolio](https://divya06raj.github.io/portfolio/)**
+**[View Live Portfolio](https://divya06raj.github.io/My-Portfolio/)**
 
 ## 📂 Projects Showcased
 
