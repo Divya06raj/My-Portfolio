@@ -147,17 +147,27 @@ document.querySelectorAll('.project-card, .skill-item, .contact-card, .social-ca
 // Contact Form Handler
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        // Get form data
+
         const formData = new FormData(contactForm);
-        
-        // Show success message
-        showNotification('Message sent successfully! 🎉', 'success');
-        
-        // Reset form
-        contactForm.reset();
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                showNotification('Message sent successfully! 🎉', 'success');
+                contactForm.reset();
+            } else {
+                showNotification('Oops! Something went wrong. Try again.', 'error');
+            }
+        } catch (error) {
+            showNotification('Network error. Please try again.', 'error');
+        }
     });
 }
 
