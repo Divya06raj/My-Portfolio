@@ -687,6 +687,10 @@ section {
     gap: 20px;
 }
 
+.form-group {
+    width: 100%;
+}
+
 .form-group input,
 .form-group textarea {
     width: 100%;
@@ -705,6 +709,18 @@ section {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.contact-form .btn-primary {
+    width: 100%;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
 }
 
 .social-links {
