@@ -153,7 +153,7 @@ if (contactForm) {
         const formData = new FormData(contactForm);
 
         try {
-            const response = await fetch(contactForm.action, {
+            const response = await fetch('https://formspree.io/f/xvzwqazk', {
                 method: 'POST',
                 body: formData,
                 headers: { 'Accept': 'application/json' }
@@ -163,9 +163,12 @@ if (contactForm) {
                 showNotification('Message sent successfully! 🎉', 'success');
                 contactForm.reset();
             } else {
+                const data = await response.json();
+                console.error('Formspree error:', data);
                 showNotification('Oops! Something went wrong. Try again.', 'error');
             }
         } catch (error) {
+            console.error('Fetch error:', error);
             showNotification('Network error. Please try again.', 'error');
         }
     });
